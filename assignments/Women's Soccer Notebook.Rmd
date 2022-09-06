@@ -1,0 +1,67 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+```{r}
+library(tidyverse)
+```
+```{R}
+SoccerW<- read_csv("https://raw.githubusercontent.com/dwillis/NCAAWomensSoccerData/main/data/ncaa_womens_soccer_matchstats_2022.csv")
+```
+
+
+```{R}
+SoccerW %>%
+ group_by(team) %>% 
+  filter(team == "Maryland Terrapins, Terps") %>% 
+  summarise(total_shots = sum(sh_att), total_quality_shots = sum(so_g)) %>% 
+  mutate(percentage_quality_shots = (total_quality_shots/total_shots)*100) %>% 
+  arrange(desc(percentage_quality_shots))
+  
+```
+```{r}
+matches_2021 <- read_csv("https://raw.githubusercontent.com/dwillis/NCAAWomensSoccerData/main/data/ncaa_womens_soccer_matchstats_2021.csv")
+```
+```{r}
+matches_2021 %>% 
+  filter(team == "Maryland Terrapins, Terps", date < "2021-09-05") %>% 
+  group_by(team) %>% 
+ summarise(total_terps_shots = sum(sh_att), total_quality_shots = sum(so_g)) %>%
+mutate(percent_quality_shots = (total_quality_shots/total_terps_shots)*100)
+```
+```{r}
+draws <- SoccerW %>% 
+  group_by(team) %>% 
+  filter(result == "T") %>% 
+  summarise(total = n()) %>% 
+  arrange(desc(total))
+```
+Question 3: 4 other teams also had 4 draws. 
+
+```{r}
+corners <- SoccerW %>%
+  filter(team == "Maryland Terrapins, Terps") %>% 
+  group_by(team) %>% 
+  summarise(md_corners = sum(corners), opp_corners = sum(defensive_corners)) %>% 
+  mutate(difference = md_corners - opp_corners)
+  
+all_team_corners <- SoccerW %>% 
+  group_by(team) %>% 
+  summarise(team_corners = sum(corners), other_team_corners = sum(defensive_corners)) %>% 
+  mutate(difference = team_corners - other_team_corners) %>% 
+  arrange(desc(difference))
+ 
+  
+```
+Question 4
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
