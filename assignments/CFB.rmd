@@ -1,0 +1,46 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+```{r}
+
+```
+
+```{r}
+library(tidyverse)
+```
+```{r}
+```
+
+
+```{r}
+install.packages("cfbfastR")
+```
+```{r}
+tictoc::tic()
+pbp <- data.frame()
+seasons <- 2014:cfbfastR:::most_recent_cfb_season()
+progressr::with_progress({
+
+  pbp <- cfbfastR::load_cfb_pbp(seasons)
+})
+tictoc::toc()
+```
+```{r}
+glimpse(pbp)
+```
+Which team has had the most penalties on the first play of a series?
+```{r}
+pbp %>% 
+  filter(new_series == 1, drive_play_number == 1, play_type == 'Penalty', down == 1) %>% 
+  group_by(pos_team) %>% 
+  summarise(plays = n(), games = n_distinct(game_id)) %>% 
+  arrange(desc(plays))
+  
+```
+
+
