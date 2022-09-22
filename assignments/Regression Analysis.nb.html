@@ -1795,193 +1795,161 @@ the chunk or by placing your cursor inside it and pressing
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuU29jY2VyVzwtIHJlYWRfY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2R3aWxsaXMvTkNBQVdvbWVuc1NvY2NlckRhdGEvbWFpbi9kYXRhL25jYWFfd29tZW5zX3NvY2Nlcl9tYXRjaHN0YXRzXzIwMjIuY3N2XCIpXG5gYGAifQ== -->
-<pre class="r"><code>SoccerW&lt;- read_csv(&quot;https://raw.githubusercontent.com/dwillis/NCAAWomensSoccerData/main/data/ncaa_womens_soccer_matchstats_2022.csv&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaW5zdGFsbC5wYWNrYWdlcyhcIkhtaXNjXCIpXG5gYGAifQ== -->
+<pre class="r"><code>install.packages(&quot;Hmisc&quot;)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUm93czogMTg0MyBDb2x1bW5zOiA1M+KUgOKUgCBDb2x1bW4gc3BlY2lmaWNhdGlvbiDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIBcbkRlbGltaXRlcjogXCIsXCJcbmNociAgICg0KTogdGVhbSwgb3Bwb25lbnQsIGhvbWVfYXdheSwgcmVzdWx0XG5kYmwgICg0NSk6IHRlYW1fc2NvcmUsIG9wcG9uZW50X3Njb3JlLCBnYW1lcywgZ29hbHMsIGFzc2lzdHMsIHNoX2F0dCwgc29fZywgZm91bHMsIHJlZF9jYS4uLlxubGdsICAgKDEpOiBvdmVydGltZVxuZGF0ZSAgKDEpOiBkYXRlXG50aW1lICAoMik6IGdvYWxpZV9taW5fcGx5ZCwgZGVmZW5zaXZlX2dvYWxpZV9taW5fcGx5ZFxu4oS5IFVzZSBgc3BlYygpYCB0byByZXRyaWV2ZSB0aGUgZnVsbCBjb2x1bW4gc3BlY2lmaWNhdGlvbiBmb3IgdGhpcyBkYXRhLlxu4oS5IFNwZWNpZnkgdGhlIGNvbHVtbiB0eXBlcyBvciBzZXQgYHNob3dfY29sX3R5cGVzID0gRkFMU0VgIHRvIHF1aWV0IHRoaXMgbWVzc2FnZS5cbiJ9 -->
-<pre><code>Rows: 1843 Columns: 53── Column specification ─────────────────────────────────────────────────────────────────────
-Delimiter: &quot;,&quot;
-chr   (4): team, opponent, home_away, result
-dbl  (45): team_score, opponent_score, games, goals, assists, sh_att, so_g, fouls, red_ca...
-lgl   (1): overtime
-date  (1): date
-time  (2): goalie_min_plyd, defensive_goalie_min_plyd
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoidHJ5aW5nIFVSTCAnaHR0cHM6Ly9jcmFuLnJzdHVkaW8uY29tL2Jpbi9tYWNvc3gvY29udHJpYi80LjEvSG1pc2NfNC43LTEudGd6J1xuQ29udGVudCB0eXBlICdhcHBsaWNhdGlvbi94LWd6aXAnIGxlbmd0aCAzMjc1NTcxIGJ5dGVzICgzLjEgTUIpXG49PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PVxuZG93bmxvYWRlZCAzLjEgTUJcbiJ9 -->
+<pre><code>trying URL &#39;https://cran.rstudio.com/bin/macosx/contrib/4.1/Hmisc_4.7-1.tgz&#39;
+Content type &#39;application/x-gzip&#39; length 3275571 bytes (3.1 MB)
+==================================================
+downloaded 3.1 MB</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuU29jY2VyVyAlPiVcbiBncm91cF9ieSh0ZWFtKSAlPiUgXG4gIGZpbHRlcih0ZWFtID09IFwiTWFyeWxhbmQgVGVycmFwaW5zLCBUZXJwc1wiKSAlPiUgXG4gIHN1bW1hcmlzZSh0b3RhbF9zaG90cyA9IHN1bShzaF9hdHQpLCB0b3RhbF9xdWFsaXR5X3Nob3RzID0gc3VtKHNvX2cpKSAlPiUgXG4gIG11dGF0ZShwZXJjZW50YWdlX3F1YWxpdHlfc2hvdHMgPSAodG90YWxfcXVhbGl0eV9zaG90cy90b3RhbF9zaG90cykqMTAwKSAlPiUgXG4gIGFycmFuZ2UoZGVzYyhwZXJjZW50YWdlX3F1YWxpdHlfc2hvdHMpKVxuYGBgIn0= -->
-<pre class="r"><code>SoccerW %&gt;%
- group_by(team) %&gt;% 
-  filter(team == &quot;Maryland Terrapins, Terps&quot;) %&gt;% 
-  summarise(total_shots = sum(sh_att), total_quality_shots = sum(so_g)) %&gt;% 
-  mutate(percentage_quality_shots = (total_quality_shots/total_shots)*100) %&gt;% 
-  arrange(desc(percentage_quality_shots))</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6NCwic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyIxIMOXIDQiXX19LCJyZGYiOiJINHNJQUFBQUFBQUFBMTFRc1U3RE1CQzlwQTZvUVMxSVhXRGpBMGdreE1MWUFTRVdKRlFWcVJzeWlXa2pYRHZZanFBYmF6K2kvd1UvMDNKT2JOVDZKTnZ2dmZQNTNYbHlON3RKWnlrQTlJQkVNZlFTaEpBOFQrK3pXd0FTSTRtQVFOK2VYM2hwaElEZ090dExYRHhTdGVKVWxKZFRwaFN0SzZHdkxLdzFKb2YyNHZocERDNDYvazhkZjlpc2Z6YnIzOEF4RVhUSnRITWpUaVNHMGFYREowWWF5bC8wUWhydHBGRW5mVFNVVjJaMWtEcXZtU3FZTUhUT2d2eWhiVi9Kejl4YkQzREYzN2p0TU1MK0NrNjE3OCtMYVVrTnpkOFUxaVBiQmlYSHNqYVZGRmdVMjY5TWd1Sm9FZ2luamJDZGxGbXhhTVI3ZG0wTjJuUVhBNGVqUFV3Nnkzam5ua3JjVTBkTXpDdkJmTytjdmpMdXlCQW5iZ2ZPYTFVSjR5ZEJWZWZ0ZjNxbGtOd3I3V3l3L1FNZ1pPNENRUUlBQUE9PSJ9 -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["team"],"name":[1],"type":["chr"],"align":["left"]},{"label":["total_shots"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["total_quality_shots"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["percentage_quality_shots"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"Maryland Terrapins, Terps","2":"65","3":"32","4":"49.23077"}],"options":{"columns":{"min":{},"max":[10],"total":[4]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuTkFcbmBgYCJ9 -->
-<pre class="r"><code>NA</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWF0Y2hlc18yMDIxIDwtIHJlYWRfY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2R3aWxsaXMvTkNBQVdvbWVuc1NvY2NlckRhdGEvbWFpbi9kYXRhL25jYWFfd29tZW5zX3NvY2Nlcl9tYXRjaHN0YXRzXzIwMjEuY3N2XCIpXG5gYGAifQ== -->
-<pre class="r"><code>matches_2021 &lt;- read_csv(&quot;https://raw.githubusercontent.com/dwillis/NCAAWomensSoccerData/main/data/ncaa_womens_soccer_matchstats_2021.csv&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWF0Y2hlc18yMDIxICU+JSBcbiAgZmlsdGVyKHRlYW0gPT0gXCJNYXJ5bGFuZCBUZXJyYXBpbnMsIFRlcnBzXCIsIGRhdGUgPCBcIjIwMjEtMDktMDVcIikgJT4lIFxuICBncm91cF9ieSh0ZWFtKSAlPiUgXG4gc3VtbWFyaXNlKHRvdGFsX3RlcnBzX3Nob3RzID0gc3VtKHNoX2F0dCksIHRvdGFsX3F1YWxpdHlfc2hvdHMgPSBzdW0oc29fZykpICU+JVxubXV0YXRlKHBlcmNlbnRfcXVhbGl0eV9zaG90cyA9ICh0b3RhbF9xdWFsaXR5X3Nob3RzL3RvdGFsX3RlcnBzX3Nob3RzKSoxMDApXG5gYGAifQ== -->
-<pre class="r"><code>matches_2021 %&gt;% 
-  filter(team == &quot;Maryland Terrapins, Terps&quot;, date &lt; &quot;2021-09-05&quot;) %&gt;% 
-  group_by(team) %&gt;% 
- summarise(total_terps_shots = sum(sh_att), total_quality_shots = sum(so_g)) %&gt;%
-mutate(percent_quality_shots = (total_quality_shots/total_terps_shots)*100)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6NCwic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyIxIMOXIDQiXX19LCJyZGYiOiJINHNJQUFBQUFBQUFBMTFRUVU3RE1CRGNwQTZva1ZxMXFqaHc0d0VrQW5IaENBTEJxUmZVU3IxVkpqRTB3clZUMjFIcGpjZnhETjdTc2s1c3FmVktsbWRuZGoyN2ZudGUzS1dMRkFCNlFLSVllZ2xDU09hemwrd2VnTVNZUkVDZ2IrOXZMSm9nSUhoR1I4TGxsS29kcDZLOG1qR2xhRjBKZlcxaHJWRWMyc0tIK1ErNDZQSkhPTTJmZnJmanY5ZE40SmdJdW1iYXVSRkhFc1BvMnVHeGtZYnlwYkZlUzcyU1JqdGgwZ21iaHZMSzdFNmtpNXFwZ2drVGlLZk9mU1czdVhjZjRJbnRBZ2VNY01TQ1UrMUg5R1JhVWtQekQ0WDltTzJEbG5OWm0wb0tiSXJ0YnlaQmM2UUNZdFFJTzBtWkZhdEdmR1czTjlhaDFic1lPQndkWWRKNXhnZjNWdUxlT21QaXN4TE1EOC9wTytNdUdlTEs3Y1o1clNwaC9Dckk2cno5VGM4VWtudW1YUTcyLy9OUldaeEZBZ0FBIn0= -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["team"],"name":[1],"type":["chr"],"align":["left"]},{"label":["total_terps_shots"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["total_quality_shots"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["percent_quality_shots"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"Maryland Terrapins, Terps","2":"86","3":"34","4":"39.53488"}],"options":{"columns":{"min":{},"max":[10],"total":[4]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZHJhd3MgPC0gU29jY2VyVyAlPiUgXG4gIGdyb3VwX2J5KHRlYW0pICU+JSBcbiAgZmlsdGVyKHJlc3VsdCA9PSBcIlRcIikgJT4lIFxuICBzdW1tYXJpc2UodG90YWwgPSBuKCkpICU+JSBcbiAgYXJyYW5nZShkZXNjKHRvdGFsKSlcbmBgYCJ9 -->
-<pre class="r"><code>draws &lt;- SoccerW %&gt;% 
-  group_by(team) %&gt;% 
-  filter(result == &quot;T&quot;) %&gt;% 
-  summarise(total = n()) %&gt;% 
-  arrange(desc(total))</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Question 3: 4 other teams also had 4 draws.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29ybmVycyA8LSBTb2NjZXJXICU+JVxuICBmaWx0ZXIodGVhbSA9PSBcIk1hcnlsYW5kIFRlcnJhcGlucywgVGVycHNcIikgJT4lIFxuICBncm91cF9ieSh0ZWFtKSAlPiUgXG4gIHN1bW1hcmlzZShtZF9jb3JuZXJzID0gc3VtKGNvcm5lcnMpLCBvcHBfY29ybmVycyA9IHN1bShkZWZlbnNpdmVfY29ybmVycykpICU+JSBcbiAgbXV0YXRlKGRpZmZlcmVuY2UgPSBtZF9jb3JuZXJzIC0gb3BwX2Nvcm5lcnMpXG4gIFxuYWxsX3RlYW1fY29ybmVycyA8LSBTb2NjZXJXICU+JSBcbiAgZ3JvdXBfYnkodGVhbSkgJT4lIFxuICBzdW1tYXJpc2UodGVhbV9jb3JuZXJzID0gc3VtKGNvcm5lcnMpLCBvdGhlcl90ZWFtX2Nvcm5lcnMgPSBzdW0oZGVmZW5zaXZlX2Nvcm5lcnMpKSAlPiUgXG4gIG11dGF0ZShkaWZmZXJlbmNlID0gdGVhbV9jb3JuZXJzIC0gb3RoZXJfdGVhbV9jb3JuZXJzKSAlPiUgXG4gIGFycmFuZ2UoZGVzYyhkaWZmZXJlbmNlKSlcbiBcbiAgXG5gYGAifQ== -->
-<pre class="r"><code>corners &lt;- SoccerW %&gt;%
-  filter(team == &quot;Maryland Terrapins, Terps&quot;) %&gt;% 
-  group_by(team) %&gt;% 
-  summarise(md_corners = sum(corners), opp_corners = sum(defensive_corners)) %&gt;% 
-  mutate(difference = md_corners - opp_corners)
-  
-all_team_corners &lt;- SoccerW %&gt;% 
-  group_by(team) %&gt;% 
-  summarise(team_corners = sum(corners), other_team_corners = sum(defensive_corners)) %&gt;% 
-  mutate(difference = team_corners - other_team_corners) %&gt;% 
-  arrange(desc(difference))
- 
-  </code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29ycmVsYXRpb25zIDwtIHJlYWRfY3N2KFwifi9EZXNrdG9wL2pvdXI0Nzl4X2ZhbGxfMjAyMi9kYXRhL25jYWFfd29tZW5zX3NvY2Nlcl9tYXRjaHN0YXRzXzIwMjIuY3N2XCIpXG5gYGAifQ== -->
-<pre class="r"><code>correlations &lt;- read_csv(&quot;~/Desktop/jour479x_fall_2022/data/ncaa_womens_soccer_matchstats_2022.csv&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUm93czogMjQ0MiBDb2x1bW5zOiA1M+KUgOKUgCBDb2x1bW4gc3BlY2lmaWNhdGlvbiDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIBcbkRlbGltaXRlcjogXCIsXCJcbmNociAgICg0KTogdGVhbSwgb3Bwb25lbnQsIGhvbWVfYXdheSwgb3V0Y29tZVxuZGJsICAoNDUpOiB0ZWFtX3Njb3JlLCBvcHBvbmVudF9zY29yZSwgZ2FtZXMsIGdvYWxzLCBhc3Npc3RzLCBzaF9hdHQsIHNvX2csIGZvdWxzLCByZWRfY2EuLi5cbmxnbCAgICgxKTogb3ZlcnRpbWVcbmRhdGUgICgxKTogZGF0ZVxudGltZSAgKDIpOiBnb2FsaWVfbWluX3BseWQsIGRlZmVuc2l2ZV9nb2FsaWVfbWluX3BseWRcbuKEuSBVc2UgYHNwZWMoKWAgdG8gcmV0cmlldmUgdGhlIGZ1bGwgY29sdW1uIHNwZWNpZmljYXRpb24gZm9yIHRoaXMgZGF0YS5cbuKEuSBTcGVjaWZ5IHRoZSBjb2x1bW4gdHlwZXMgb3Igc2V0IGBzaG93X2NvbF90eXBlcyA9IEZBTFNFYCB0byBxdWlldCB0aGlzIG1lc3NhZ2UuXG4ifQ== -->
-<pre><code>Rows: 2442 Columns: 53── Column specification ─────────────────────────────────────────────────────────────────────
-Delimiter: &quot;,&quot;
-chr   (4): team, opponent, home_away, outcome
-dbl  (45): team_score, opponent_score, games, goals, assists, sh_att, so_g, fouls, red_ca...
-lgl   (1): overtime
-date  (1): date
-time  (2): goalie_min_plyd, defensive_goalie_min_plyd
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmV3Y29ycmVsYXRpb25zIDwtIGNvcnJlbGF0aW9ucyAlPiUgXG4gIG11dGF0ZShkaWZmZXJlbnRpYWwgPSBnb2FscyAtIGRlZmVuc2l2ZV9nb2FscylcbmBgYCJ9 -->
-<pre class="r"><code>newcorrelations &lt;- correlations %&gt;% 
-  mutate(differential = goals - defensive_goals)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmV3Y29ycmVsYXRpb25zICU+JSBzdW1tYXJpc2UoY29ycmVsYXRpb24gPSBjb3IoZGlmZmVyZW50aWFsLCBmb3VscywgbWV0aG9kPVwicGVhcnNvblwiKSlcbmBgYCJ9 -->
-<pre class="r"><code>newcorrelations %&gt;% summarise(correlation = cor(differential, fouls, method=&quot;pearson&quot;))</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6MSwic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyIxIMOXIDEiXX19LCJyZGYiOiJINHNJQUFBQUFBQUFBMTFQU3dyQ01CQ2R4a2F4NGdjOFI3dlFqVHRkaUFjUUJiZXhSaTNHUk5LSUxqMkhKL0EwZ2tmd0l1cWtKQ0FKVEdibThkN012UGwwTlV4V0NRRFVJSTRJMUNpV1FKZUxXVG9DaUFrMkVjVFF0UG1LcEg0RkFIUnNIdDlici9maytRaUlWTElqTDdIby9ZR3RYR25OQlRPRmtnRy9xZFVsODVvMkJybmg5OFVYRHM0Rks4UEJ5WVlabG0wMTZySDdCSktHT3RtTktDTDJkQnFJSXgwQTNiTzBsMnpTZkgrV2gzUmdGempMNEs2TFhQelZkaVg1dWxIVWphcHp1U3NrOTdjTHR1YkNOUjEwWEJuT1RycVF4anRCdE15TU1zenprbHdKajFUZTRQTUR0ZjBrS0xFQkFBQT0ifQ== -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["correlation"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.02543571"}],"options":{"columns":{"min":{},"max":[10],"total":[1]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmV3Y29ycmVsYXRpb25zICU+JSBcbiAgc3VtbWFyaXNlKGNvcnJlbGF0aW9uID0gY29yKGRpZmZlcmVudGlhbCwgeWVsbG93X2NhcmRzLCBtZXRob2Q9XCJwZWFyc29uXCIpKVxuYGBgIn0= -->
-<pre class="r"><code>newcorrelations %&gt;% 
-  summarise(correlation = cor(differential, yellow_cards, method=&quot;pearson&quot;))</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6MSwic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyIxIMOXIDEiXX19LCJyZGYiOiJINHNJQUFBQUFBQUFBMTFQU3dyQ01CQ2R4a2F4NGdjOFI3dHg0d0hFQTRpaTIxaWpGbU5TMGhSZGVoMTMzc0NkQi9FZzZxUWtJQWxNWnVieDNzeTh4V3d6U1RZSkFMUWdqZ2kwS0paQVY4dDVPZ1dJQ1RZUnhOQzErWXFrY1FNQURHeCtQdTZ2dy9vZEVxbGtaMTVoTWZvRGU3blNtZ3RtQ2lVRGZsZXJTK1kxZlF4eXcrK0xMeHljQzFhRmc1TWRNeXpiYTlSajl3a2tIVlhhalNnaTluUWFpQ01kQU1OYTJrdDJhWDZzNVNtZDJBWE9NcmpySWhkL3RWMUp2bTRVZGFQYVhCNEt5ZjN0Z20yNWNNMEFIVGVHczFJWDBuZ25pRmFaVVlaNVhwSXI0WkhHRzN4K29EalUvckVCQUFBPSJ9 -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["correlation"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"-0.06509056"}],"options":{"columns":{"min":{},"max":[10],"total":[1]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZml0IDwtIGxtKGRpZmZlcmVudGlhbCB+IGZvdWxzLCBkYXRhID0gbmV3Y29ycmVsYXRpb25zKVxuc3VtbWFyeShmaXQpXG5gYGAifQ== -->
-<pre class="r"><code>fit &lt;- lm(differential ~ fouls, data = newcorrelations)
-summary(fit)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5DYWxsOlxubG0oZm9ybXVsYSA9IGRpZmZlcmVudGlhbCB+IGZvdWxzLCBkYXRhID0gbmV3Y29ycmVsYXRpb25zKVxuXG5SZXNpZHVhbHM6XG4gICAgIE1pbiAgICAgICAxUSAgIE1lZGlhbiAgICAgICAzUSAgICAgIE1heCBcbi0xMC45ODQxICAtMS4xMDYwICAtMC4wNTM4ICAgMS4wMTU5ICAxMC45NjM2IFxuXG5Db2VmZmljaWVudHM6XG4gICAgICAgICAgICBFc3RpbWF0ZSBTdGQuIEVycm9yIHQgdmFsdWUgUHIoPnx0fClcbihJbnRlcmNlcHQpIC0wLjEwMzAzICAgIDAuMTM0MDMgIC0wLjc2OSAgICAwLjQ0MlxuZm91bHMgICAgICAgIDAuMDE3NDIgICAgMC4wMTM4NiAgIDEuMjU3ICAgIDAuMjA5XG5cblJlc2lkdWFsIHN0YW5kYXJkIGVycm9yOiAyLjQ3NCBvbiAyNDQwIGRlZ3JlZXMgb2YgZnJlZWRvbVxuTXVsdGlwbGUgUi1zcXVhcmVkOiAgMC4wMDA2NDcsXHRBZGp1c3RlZCBSLXNxdWFyZWQ6ICAwLjAwMDIzNzQgXG5GLXN0YXRpc3RpYzogIDEuNTggb24gMSBhbmQgMjQ0MCBERiwgIHAtdmFsdWU6IDAuMjA4OVxuIn0= -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5UaGUgZG93bmxvYWRlZCBiaW5hcnkgcGFja2FnZXMgYXJlIGluXG5cdC92YXIvZm9sZGVycy81cy94MTF4bHkxeDN2ZDdsbHQ4MWc2ZnR4eGMwMDAwZ24vVC8vUnRtcE1yNm5nbS9kb3dubG9hZGVkX3BhY2thZ2VzXG4ifQ== -->
 <pre><code>
-Call:
-lm(formula = differential ~ fouls, data = newcorrelations)
-
-Residuals:
-     Min       1Q   Median       3Q      Max 
--10.9841  -1.1060  -0.0538   1.0159  10.9636 
-
-Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)
-(Intercept) -0.10303    0.13403  -0.769    0.442
-fouls        0.01742    0.01386   1.257    0.209
-
-Residual standard error: 2.474 on 2440 degrees of freedom
-Multiple R-squared:  0.000647,  Adjusted R-squared:  0.0002374 
-F-statistic:  1.58 on 1 and 2440 DF,  p-value: 0.2089</code></pre>
+The downloaded binary packages are in
+    /var/folders/5s/x11xly1x3vd7llt81g6ftxxc0000gn/T//RtmpMr6ngm/downloaded_packages</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29ycmVsYXRpb25zIDwtIHJlYWRfY3N2KFwiaHR0cDovL21hdHR3YWl0ZS5naXRodWIuaW8vc3BvcnRzZGF0YWZpbGVzL2Zvb3RiYWxsbG9nczIxLmNzdlwiKVxuYGBgIn0= -->
-<pre class="r"><code>correlations &lt;- read_csv(&quot;http://mattwaite.github.io/sportsdatafiles/footballlogs21.csv&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubG9ncyA8LSByZWFkX2NzdignaHR0cDovL21hdHR3YWl0ZS5naXRodWIuaW8vc3BvcnRzZGF0YWZpbGVzL2Zvb3RiYWxsbG9nczExMjEuY3N2JykgXG5gYGAifQ== -->
+<pre class="r"><code>logs &lt;- read_csv(&#39;http://mattwaite.github.io/sportsdatafiles/footballlogs1121.csv&#39;) </code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUm93czogMTY1NSBDb2x1bW5zOiA1NOKUgOKUgCBDb2x1bW4gc3BlY2lmaWNhdGlvbiDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIBcbkRlbGltaXRlcjogXCIsXCJcbmNociAgICg4KTogSG9tZUF3YXksIE9wcG9uZW50LCBSZXN1bHQsIFRlYW1GdWxsLCBUZWFtVVJMLCBPdXRjb21lLCBUZWFtLCBDb25mZXJlbmNlXG5kYmwgICg0NSk6IEdhbWUsIFBhc3NpbmdDbXAsIFBhc3NpbmdBdHQsIFBhc3NpbmdQY3QsIFBhc3NpbmdZZHMsIFBhc3NpbmdURCwgUnVzaGluZ0F0dCwgUi4uLlxuZGF0ZSAgKDEpOiBEYXRlXG7ihLkgVXNlIGBzcGVjKClgIHRvIHJldHJpZXZlIHRoZSBmdWxsIGNvbHVtbiBzcGVjaWZpY2F0aW9uIGZvciB0aGlzIGRhdGEuXG7ihLkgU3BlY2lmeSB0aGUgY29sdW1uIHR5cGVzIG9yIHNldCBgc2hvd19jb2xfdHlwZXMgPSBGQUxTRWAgdG8gcXVpZXQgdGhpcyBtZXNzYWdlLlxuIn0= -->
-<pre><code>Rows: 1655 Columns: 54── Column specification ─────────────────────────────────────────────────────────────────────
+<!-- rnb-output-begin eyJkYXRhIjoiUm93czogMTcyOTIgQ29sdW1uczogNTXilIDilIAgQ29sdW1uIHNwZWNpZmljYXRpb24g4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSAXG5EZWxpbWl0ZXI6IFwiLFwiXG5jaHIgICAoOCk6IEhvbWVBd2F5LCBPcHBvbmVudCwgUmVzdWx0LCBUZWFtRnVsbCwgVGVhbVVSTCwgT3V0Y29tZSwgVGVhbSwgQ29uZmVyZW5jZVxuZGJsICAoNDYpOiBHYW1lLCBQYXNzaW5nQ21wLCBQYXNzaW5nQXR0LCBQYXNzaW5nUGN0LCBQYXNzaW5nWWRzLCBQYXNzaW5nVEQsIFJ1c2hpbmdBdHQsIFIuLi5cbmRhdGUgICgxKTogRGF0ZVxu4oS5IFVzZSBgc3BlYygpYCB0byByZXRyaWV2ZSB0aGUgZnVsbCBjb2x1bW4gc3BlY2lmaWNhdGlvbiBmb3IgdGhpcyBkYXRhLlxu4oS5IFNwZWNpZnkgdGhlIGNvbHVtbiB0eXBlcyBvciBzZXQgYHNob3dfY29sX3R5cGVzID0gRkFMU0VgIHRvIHF1aWV0IHRoaXMgbWVzc2FnZS5cbiJ9 -->
+<pre><code>Rows: 17292 Columns: 55── Column specification ─────────────────────────────────────────────────────────────────────
 Delimiter: &quot;,&quot;
 chr   (8): HomeAway, Opponent, Result, TeamFull, TeamURL, Outcome, Team, Conference
-dbl  (45): Game, PassingCmp, PassingAtt, PassingPct, PassingYds, PassingTD, RushingAtt, R...
+dbl  (46): Game, PassingCmp, PassingAtt, PassingPct, PassingYds, PassingTD, RushingAtt, R...
 date  (1): Date
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubG9ncyA8LSBsb2dzICU+JSBcbiAgbXV0YXRlKFBvaW50RGlmZmVyZW50aWFsID0gVGVhbVNjb3JlIC0gT3Bwb25lbnRTY29yZSlcbmBgYCJ9 -->
+<pre class="r"><code>logs &lt;- logs %&gt;% 
+  mutate(PointDifferential = TeamScore - OpponentScore)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZml0IDwtIGxtKFBvaW50RGlmZmVyZW50aWFsIH4gUGVuYWx0aWVzLCBkYXRhID0gbG9ncylcbnN1bW1hcnkoZml0KVxuYGBgIn0= -->
+<pre class="r"><code>fit &lt;- lm(PointDifferential ~ Penalties, data = logs)
+summary(fit)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5DYWxsOlxubG0oZm9ybXVsYSA9IFBvaW50RGlmZmVyZW50aWFsIH4gUGVuYWx0aWVzLCBkYXRhID0gbG9ncylcblxuUmVzaWR1YWxzOlxuICAgIE1pbiAgICAgIDFRICBNZWRpYW4gICAgICAzUSAgICAgTWF4IFxuLTc5LjY5MyAtMTUuMTU5ICAgMC40NTEgIDE1LjE2MyAgODEuODc2IFxuXG5Db2VmZmljaWVudHM6XG4gICAgICAgICAgICBFc3RpbWF0ZSBTdGQuIEVycm9yIHQgdmFsdWUgUHIoPnx0fCkgICAgXG4oSW50ZXJjZXB0KSAgMi42OTkwMiAgICAwLjQwNDU3ICAgNi42NzEgMi42MWUtMTEgKioqXG5QZW5hbHRpZXMgICAtMC4xNDM3MiAgICAwLjA2MTA0ICAtMi4zNTQgICAwLjAxODYgKiAgXG4tLS1cblNpZ25pZi4gY29kZXM6ICAwIOKAmCoqKuKAmSAwLjAwMSDigJgqKuKAmSAwLjAxIOKAmCrigJkgMC4wNSDigJgu4oCZIDAuMSDigJgg4oCZIDFcblxuUmVzaWR1YWwgc3RhbmRhcmQgZXJyb3I6IDIyLjc2IG9uIDE3MjkwIGRlZ3JlZXMgb2YgZnJlZWRvbVxuTXVsdGlwbGUgUi1zcXVhcmVkOiAgMC4wMDAzMjA1LFx0QWRqdXN0ZWQgUi1zcXVhcmVkOiAgMC4wMDAyNjI3IFxuRi1zdGF0aXN0aWM6IDUuNTQ0IG9uIDEgYW5kIDE3MjkwIERGLCAgcC12YWx1ZTogMC4wMTg1NlxuIn0= -->
+<pre><code>
+Call:
+lm(formula = PointDifferential ~ Penalties, data = logs)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-79.693 -15.159   0.451  15.163  81.876 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  2.69902    0.40457   6.671 2.61e-11 ***
+Penalties   -0.14372    0.06104  -2.354   0.0186 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 22.76 on 17290 degrees of freedom
+Multiple R-squared:  0.0003205, Adjusted R-squared:  0.0002627 
+F-statistic: 5.544 on 1 and 17290 DF,  p-value: 0.01856</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>Add a new chunk by clicking the <em>Insert Chunk</em> button on the
-toolbar or by pressing <em>Cmd+Option+I</em>.</p>
-<p>When you save the notebook, an HTML file containing the code and
-output will be saved alongside it (click the <em>Preview</em> button or
-press <em>Cmd+Shift+K</em> to preview the HTML file).</p>
-<p>The preview shows you a rendered HTML copy of the contents of the
-editor. Consequently, unlike <em>Knit</em>, <em>Preview</em> does not
-run any R code chunks. Instead, the output of the chunk when it was last
-run in the editor is displayed.</p>
+<p>Question 3: The P-value tells you the correlation between two
+variables. If the P value is less than .05, the relationship is
+considered to be statistically significant.In this scenario, the P value
+is.01856, therefore making it statistically significant. This is useful
+because it shows us that there is a very clear correlation between
+penalty and yards in college football.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubW9kZWwxIDwtIGxtKFBvaW50RGlmZmVyZW50aWFsIH4gSW50ZXJjZXB0aW9uc0RpZmZlcmVudGlhbCArIEZ1bWJsZURpZmZlcmVudGlhbCwgZGF0YT1sb2dzKVxuc3VtbWFyeShtb2RlbDEpXG5cbmBgYCJ9 -->
+<pre class="r"><code>model1 &lt;- lm(PointDifferential ~ InterceptionsDifferential + FumbleDifferential, data=logs)
+summary(model1)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5DYWxsOlxubG0oZm9ybXVsYSA9IFBvaW50RGlmZmVyZW50aWFsIH4gSW50ZXJjZXB0aW9uc0RpZmZlcmVudGlhbCArIFxuICAgIEZ1bWJsZURpZmZlcmVudGlhbCwgZGF0YSA9IGxvZ3MpXG5cblJlc2lkdWFsczpcbiAgICBNaW4gICAgICAxUSAgTWVkaWFuICAgICAgM1EgICAgIE1heCBcbi03OS42MTIgLTEyLjMwNyAgLTAuNjEyICAxMS45OTYgIDc4Ljk5NiBcblxuQ29lZmZpY2llbnRzOlxuICAgICAgICAgICAgICAgICAgICAgICAgICBFc3RpbWF0ZSBTdGQuIEVycm9yIHQgdmFsdWUgUHIoPnx0fCkgICAgXG4oSW50ZXJjZXB0KSAgICAgICAgICAgICAgICAgMS42MTI0ICAgICAwLjE1MDAgICAxMC43NSAgIDwyZS0xNiAqKipcbkludGVyY2VwdGlvbnNEaWZmZXJlbnRpYWwgIC03LjIzMTcgICAgIDAuMTA1MSAgLTY4LjgwICAgPDJlLTE2ICoqKlxuRnVtYmxlRGlmZmVyZW50aWFsICAgICAgICAgLTMuODQwNSAgICAgMC4xMjcxICAtMzAuMjIgICA8MmUtMTYgKioqXG4tLS1cblNpZ25pZi4gY29kZXM6ICAwIOKAmCoqKuKAmSAwLjAwMSDigJgqKuKAmSAwLjAxIOKAmCrigJkgMC4wNSDigJgu4oCZIDAuMSDigJgg4oCZIDFcblxuUmVzaWR1YWwgc3RhbmRhcmQgZXJyb3I6IDE5LjcyIG9uIDE3Mjg5IGRlZ3JlZXMgb2YgZnJlZWRvbVxuTXVsdGlwbGUgUi1zcXVhcmVkOiAgIDAuMjUsXHRBZGp1c3RlZCBSLXNxdWFyZWQ6ICAwLjI0OTkgXG5GLXN0YXRpc3RpYzogIDI4ODEgb24gMiBhbmQgMTcyODkgREYsICBwLXZhbHVlOiA8IDIuMmUtMTZcbiJ9 -->
+<pre><code>
+Call:
+lm(formula = PointDifferential ~ InterceptionsDifferential + 
+    FumbleDifferential, data = logs)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-79.612 -12.307  -0.612  11.996  78.996 
+
+Coefficients:
+                          Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)                 1.6124     0.1500   10.75   &lt;2e-16 ***
+InterceptionsDifferential  -7.2317     0.1051  -68.80   &lt;2e-16 ***
+FumbleDifferential         -3.8405     0.1271  -30.22   &lt;2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 19.72 on 17289 degrees of freedom
+Multiple R-squared:   0.25, Adjusted R-squared:  0.2499 
+F-statistic:  2881 on 2 and 17289 DF,  p-value: &lt; 2.2e-16</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Q4</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2xvc2VfZ2FtZSA8LSBsb2dzICU+JVxuICBmaWx0ZXIoUG9pbnREaWZmZXJlbnRpYWwgPD0gOCwgUG9pbnREaWZmZXJlbnRpYWwgPj0tOClcblxubW9kZWwxIDwtIGxtKFBvaW50RGlmZmVyZW50aWFsIH4gSW50ZXJjZXB0aW9uc0RpZmZlcmVudGlhbCArIEZ1bWJsZURpZmZlcmVudGlhbCwgZGF0YT1jbG9zZV9nYW1lKVxuc3VtbWFyeShtb2RlbDEpXG5gYGAifQ== -->
+<pre class="r"><code>close_game &lt;- logs %&gt;%
+  filter(PointDifferential &lt;= 8, PointDifferential &gt;=-8)
+
+model1 &lt;- lm(PointDifferential ~ InterceptionsDifferential + FumbleDifferential, data=close_game)
+summary(model1)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5DYWxsOlxubG0oZm9ybXVsYSA9IFBvaW50RGlmZmVyZW50aWFsIH4gSW50ZXJjZXB0aW9uc0RpZmZlcmVudGlhbCArIFxuICAgIEZ1bWJsZURpZmZlcmVudGlhbCwgZGF0YSA9IGNsb3NlX2dhbWUpXG5cblJlc2lkdWFsczpcbiAgICAgTWluICAgICAgIDFRICAgTWVkaWFuICAgICAgIDNRICAgICAgTWF4IFxuLTExLjI2NTUgIC0zLjkyMzQgICAwLjA4ODMgICAzLjk0MjEgIDExLjEyNjMgXG5cbkNvZWZmaWNpZW50czpcbiAgICAgICAgICAgICAgICAgICAgICAgICAgRXN0aW1hdGUgU3RkLiBFcnJvciB0IHZhbHVlIFByKD58dHwpICAgIFxuKEludGVyY2VwdCkgICAgICAgICAgICAgICAgMC4wNjk2MSAgICAwLjA2MTc0ICAgMS4xMjcgICAgIDAuMjYgICAgXG5JbnRlcmNlcHRpb25zRGlmZmVyZW50aWFsIC0xLjIwNzYwICAgIDAuMDQ4NDggLTI0LjkwNyAgPCAyZS0xNiAqKipcbkZ1bWJsZURpZmZlcmVudGlhbCAgICAgICAgLTAuNDI2OTEgICAgMC4wNTM1NCAgLTcuOTc0IDEuODNlLTE1ICoqKlxuLS0tXG5TaWduaWYuIGNvZGVzOiAgMCDigJgqKirigJkgMC4wMDEg4oCYKirigJkgMC4wMSDigJgq4oCZIDAuMDUg4oCYLuKAmSAwLjEg4oCYIOKAmSAxXG5cblJlc2lkdWFsIHN0YW5kYXJkIGVycm9yOiA0Ljc4OSBvbiA2MDE0IGRlZ3JlZXMgb2YgZnJlZWRvbVxuTXVsdGlwbGUgUi1zcXVhcmVkOiAgMC4wOTgzNyxcdEFkanVzdGVkIFItc3F1YXJlZDogIDAuMDk4MDcgXG5GLXN0YXRpc3RpYzogMzI4LjEgb24gMiBhbmQgNjAxNCBERiwgIHAtdmFsdWU6IDwgMi4yZS0xNlxuIn0= -->
+<pre><code>
+Call:
+lm(formula = PointDifferential ~ InterceptionsDifferential + 
+    FumbleDifferential, data = close_game)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-11.2655  -3.9234   0.0883   3.9421  11.1263 
+
+Coefficients:
+                          Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)                0.06961    0.06174   1.127     0.26    
+InterceptionsDifferential -1.20760    0.04848 -24.907  &lt; 2e-16 ***
+FumbleDifferential        -0.42691    0.05354  -7.974 1.83e-15 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 4.789 on 6014 degrees of freedom
+Multiple R-squared:  0.09837,   Adjusted R-squared:  0.09807 
+F-statistic: 328.1 on 2 and 6014 DF,  p-value: &lt; 2.2e-16</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuICBcbmBgYCJ9 -->
+<pre class="r"><code>  </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Q5: Overall, it seemed as though single regressions seemed to be more
+accurate than multiple regressions because it was only testing one clear
+variable. In this specifc context, I feel that our regression isn’t
+accurate because the Adjusted r-squared is a bit high. My hypothesis for
+this is that, especially when looking at turnovers, close games may not
+be the best metric for filtering. I say this because in a game with a
+high turnover differential to one side or the other, the odds of the
+game being close continue to decrease, therefore our regression could
+easily be skewed overall.</p>
+<p>Overall: There is a definitely a clear relationship between penalties
+and point differential. While I don’t think this assignment provides
+enough data for a stand alone piece, I think some of the information is
+important becuase it provides context to how exactly penalties impact
+games. Something that could be interesting however is determining if
+certain kinds of penalties have more impact on point differential. Is a
+false start equal to defensive holding? Why or why not?</p>
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKVGhpcyBpcyBhbiBbUiBNYXJrZG93bl0oaHR0cDovL3JtYXJrZG93bi5yc3R1ZGlvLmNvbSkgTm90ZWJvb2suIFdoZW4geW91IGV4ZWN1dGUgY29kZSB3aXRoaW4gdGhlIG5vdGVib29rLCB0aGUgcmVzdWx0cyBhcHBlYXIgYmVuZWF0aCB0aGUgY29kZS4gCgpUcnkgZXhlY3V0aW5nIHRoaXMgY2h1bmsgYnkgY2xpY2tpbmcgdGhlICpSdW4qIGJ1dHRvbiB3aXRoaW4gdGhlIGNodW5rIG9yIGJ5IHBsYWNpbmcgeW91ciBjdXJzb3IgaW5zaWRlIGl0IGFuZCBwcmVzc2luZyAqQ21kK1NoaWZ0K0VudGVyKi4gCgpgYGB7cn0KbGlicmFyeSh0aWR5dmVyc2UpCmBgYApgYGB7Un0KU29jY2VyVzwtIHJlYWRfY3N2KCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZHdpbGxpcy9OQ0FBV29tZW5zU29jY2VyRGF0YS9tYWluL2RhdGEvbmNhYV93b21lbnNfc29jY2VyX21hdGNoc3RhdHNfMjAyMi5jc3YiKQpgYGAKCgpgYGB7Un0KU29jY2VyVyAlPiUKIGdyb3VwX2J5KHRlYW0pICU+JSAKICBmaWx0ZXIodGVhbSA9PSAiTWFyeWxhbmQgVGVycmFwaW5zLCBUZXJwcyIpICU+JSAKICBzdW1tYXJpc2UodG90YWxfc2hvdHMgPSBzdW0oc2hfYXR0KSwgdG90YWxfcXVhbGl0eV9zaG90cyA9IHN1bShzb19nKSkgJT4lIAogIG11dGF0ZShwZXJjZW50YWdlX3F1YWxpdHlfc2hvdHMgPSAodG90YWxfcXVhbGl0eV9zaG90cy90b3RhbF9zaG90cykqMTAwKSAlPiUgCiAgYXJyYW5nZShkZXNjKHBlcmNlbnRhZ2VfcXVhbGl0eV9zaG90cykpCiAgCmBgYApgYGB7cn0KbWF0Y2hlc18yMDIxIDwtIHJlYWRfY3N2KCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZHdpbGxpcy9OQ0FBV29tZW5zU29jY2VyRGF0YS9tYWluL2RhdGEvbmNhYV93b21lbnNfc29jY2VyX21hdGNoc3RhdHNfMjAyMS5jc3YiKQpgYGAKYGBge3J9Cm1hdGNoZXNfMjAyMSAlPiUgCiAgZmlsdGVyKHRlYW0gPT0gIk1hcnlsYW5kIFRlcnJhcGlucywgVGVycHMiLCBkYXRlIDwgIjIwMjEtMDktMDUiKSAlPiUgCiAgZ3JvdXBfYnkodGVhbSkgJT4lIAogc3VtbWFyaXNlKHRvdGFsX3RlcnBzX3Nob3RzID0gc3VtKHNoX2F0dCksIHRvdGFsX3F1YWxpdHlfc2hvdHMgPSBzdW0oc29fZykpICU+JQptdXRhdGUocGVyY2VudF9xdWFsaXR5X3Nob3RzID0gKHRvdGFsX3F1YWxpdHlfc2hvdHMvdG90YWxfdGVycHNfc2hvdHMpKjEwMCkKYGBgCmBgYHtyfQpkcmF3cyA8LSBTb2NjZXJXICU+JSAKICBncm91cF9ieSh0ZWFtKSAlPiUgCiAgZmlsdGVyKHJlc3VsdCA9PSAiVCIpICU+JSAKICBzdW1tYXJpc2UodG90YWwgPSBuKCkpICU+JSAKICBhcnJhbmdlKGRlc2ModG90YWwpKQpgYGAKUXVlc3Rpb24gMzogNCBvdGhlciB0ZWFtcyBhbHNvIGhhZCA0IGRyYXdzLiAKCmBgYHtyfQpjb3JuZXJzIDwtIFNvY2NlclcgJT4lCiAgZmlsdGVyKHRlYW0gPT0gIk1hcnlsYW5kIFRlcnJhcGlucywgVGVycHMiKSAlPiUgCiAgZ3JvdXBfYnkodGVhbSkgJT4lIAogIHN1bW1hcmlzZShtZF9jb3JuZXJzID0gc3VtKGNvcm5lcnMpLCBvcHBfY29ybmVycyA9IHN1bShkZWZlbnNpdmVfY29ybmVycykpICU+JSAKICBtdXRhdGUoZGlmZmVyZW5jZSA9IG1kX2Nvcm5lcnMgLSBvcHBfY29ybmVycykKICAKYWxsX3RlYW1fY29ybmVycyA8LSBTb2NjZXJXICU+JSAKICBncm91cF9ieSh0ZWFtKSAlPiUgCiAgc3VtbWFyaXNlKHRlYW1fY29ybmVycyA9IHN1bShjb3JuZXJzKSwgb3RoZXJfdGVhbV9jb3JuZXJzID0gc3VtKGRlZmVuc2l2ZV9jb3JuZXJzKSkgJT4lIAogIG11dGF0ZShkaWZmZXJlbmNlID0gdGVhbV9jb3JuZXJzIC0gb3RoZXJfdGVhbV9jb3JuZXJzKSAlPiUgCiAgYXJyYW5nZShkZXNjKGRpZmZlcmVuY2UpKQpgYGAKYGBge3J9CmNvcnJlbGF0aW9ucyA8LSByZWFkX2Nzdigifi9EZXNrdG9wL2pvdXI0Nzl4X2ZhbGxfMjAyMi9kYXRhL25jYWFfd29tZW5zX3NvY2Nlcl9tYXRjaHN0YXRzXzIwMjIuY3N2IikKYGBgCmBgYHtyfQpuZXdjb3JyZWxhdGlvbnMgPC0gY29ycmVsYXRpb25zICU+JSAKICBtdXRhdGUoZGlmZmVyZW50aWFsID0gZ29hbHMgLSBkZWZlbnNpdmVfZ29hbHMpCmBgYApgYGB7cn0KbmV3Y29ycmVsYXRpb25zICU+JSBzdW1tYXJpc2UoY29ycmVsYXRpb24gPSBjb3IoZGlmZmVyZW50aWFsLCBmb3VscywgbWV0aG9kPSJwZWFyc29uIikpCmBgYApgYGB7cn0KbmV3Y29ycmVsYXRpb25zICU+JSAKICBzdW1tYXJpc2UoY29ycmVsYXRpb24gPSBjb3IoZGlmZmVyZW50aWFsLCB5ZWxsb3dfY2FyZHMsIG1ldGhvZD0icGVhcnNvbiIpKQpgYGAKYGBge3J9CmZpdCA8LSBsbShkaWZmZXJlbnRpYWwgfiBmb3VscywgZGF0YSA9IG5ld2NvcnJlbGF0aW9ucykKc3VtbWFyeShmaXQpCmBgYAoKYGBge3J9CmNvcnJlbGF0aW9ucyA8LSByZWFkX2NzdigiaHR0cDovL21hdHR3YWl0ZS5naXRodWIuaW8vc3BvcnRzZGF0YWZpbGVzL2Zvb3RiYWxsbG9nczIxLmNzdiIpCmBgYAoKCkFkZCBhIG5ldyBjaHVuayBieSBjbGlja2luZyB0aGUgKkluc2VydCBDaHVuayogYnV0dG9uIG9uIHRoZSB0b29sYmFyIG9yIGJ5IHByZXNzaW5nICpDbWQrT3B0aW9uK0kqLgoKV2hlbiB5b3Ugc2F2ZSB0aGUgbm90ZWJvb2ssIGFuIEhUTUwgZmlsZSBjb250YWluaW5nIHRoZSBjb2RlIGFuZCBvdXRwdXQgd2lsbCBiZSBzYXZlZCBhbG9uZ3NpZGUgaXQgKGNsaWNrIHRoZSAqUHJldmlldyogYnV0dG9uIG9yIHByZXNzICpDbWQrU2hpZnQrSyogdG8gcHJldmlldyB0aGUgSFRNTCBmaWxlKS4gCgpUaGUgcHJldmlldyBzaG93cyB5b3UgYSByZW5kZXJlZCBIVE1MIGNvcHkgb2YgdGhlIGNvbnRlbnRzIG9mIHRoZSBlZGl0b3IuIENvbnNlcXVlbnRseSwgdW5saWtlICpLbml0KiwgKlByZXZpZXcqIGRvZXMgbm90IHJ1biBhbnkgUiBjb2RlIGNodW5rcy4gSW5zdGVhZCwgdGhlIG91dHB1dCBvZiB0aGUgY2h1bmsgd2hlbiBpdCB3YXMgbGFzdCBydW4gaW4gdGhlIGVkaXRvciBpcyBkaXNwbGF5ZWQuCgo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKVGhpcyBpcyBhbiBbUiBNYXJrZG93bl0oaHR0cDovL3JtYXJrZG93bi5yc3R1ZGlvLmNvbSkgTm90ZWJvb2suIFdoZW4geW91IGV4ZWN1dGUgY29kZSB3aXRoaW4gdGhlIG5vdGVib29rLCB0aGUgcmVzdWx0cyBhcHBlYXIgYmVuZWF0aCB0aGUgY29kZS4gCgpUcnkgZXhlY3V0aW5nIHRoaXMgY2h1bmsgYnkgY2xpY2tpbmcgdGhlICpSdW4qIGJ1dHRvbiB3aXRoaW4gdGhlIGNodW5rIG9yIGJ5IHBsYWNpbmcgeW91ciBjdXJzb3IgaW5zaWRlIGl0IGFuZCBwcmVzc2luZyAqQ21kK1NoaWZ0K0VudGVyKi4gCgpgYGB7cn0KbGlicmFyeSh0aWR5dmVyc2UpCmBgYApgYGB7cn0KaW5zdGFsbC5wYWNrYWdlcygiSG1pc2MiKQpgYGAKYGBge3J9CmxvZ3MgPC0gcmVhZF9jc3YoJ2h0dHA6Ly9tYXR0d2FpdGUuZ2l0aHViLmlvL3Nwb3J0c2RhdGFmaWxlcy9mb290YmFsbGxvZ3MxMTIxLmNzdicpIApgYGAKYGBge3J9CmxvZ3MgPC0gbG9ncyAlPiUgCiAgbXV0YXRlKFBvaW50RGlmZmVyZW50aWFsID0gVGVhbVNjb3JlIC0gT3Bwb25lbnRTY29yZSkKYGBgCmBgYHtyfQpmaXQgPC0gbG0oUG9pbnREaWZmZXJlbnRpYWwgfiBQZW5hbHRpZXMsIGRhdGEgPSBsb2dzKQpzdW1tYXJ5KGZpdCkKYGBgClF1ZXN0aW9uIDM6IFRoZSBQLXZhbHVlIHRlbGxzIHlvdSB0aGUgY29ycmVsYXRpb24gYmV0d2VlbiB0d28gdmFyaWFibGVzLiBJZiB0aGUgUCB2YWx1ZSBpcyBsZXNzIHRoYW4gLjA1LCB0aGUgcmVsYXRpb25zaGlwIGlzIGNvbnNpZGVyZWQgdG8gYmUgc3RhdGlzdGljYWxseSBzaWduaWZpY2FudC5JbiB0aGlzIHNjZW5hcmlvLCB0aGUgUCB2YWx1ZSBpcy4wMTg1NiwgdGhlcmVmb3JlIG1ha2luZyBpdCBzdGF0aXN0aWNhbGx5IHNpZ25pZmljYW50LiBUaGlzIGlzIHVzZWZ1bCBiZWNhdXNlIGl0IHNob3dzIHVzIHRoYXQgdGhlcmUgaXMgYSB2ZXJ5IGNsZWFyIGNvcnJlbGF0aW9uIGJldHdlZW4gcGVuYWx0eSBhbmQgeWFyZHMgaW4gY29sbGVnZSBmb290YmFsbC4KCmBgYHtyfQpsb2dzIDwtIGxvZ3MgJT4lCiAgbXV0YXRlKAogICAgRmlyc3REb3duUGVuRGlmZmVyZW50aWFsID0gRmlyc3REb3duUGVuIC0gRGVmRmlyc3REb3duUGVuLAogICAgUGVuWWRzRGlmZmVyZW50aWFsID0gUGVuYWx0eVlkcyAtIERlZlBlbmFsdHlZZHMsCiAgICBQZW5EaWZmZXJlbnRpYWwgPSBQZW5hbHRpZXMgLSBEZWZQZW5hbHRpZXMsCiAgICBGdW1ibGVEaWZmZXJlbnRpYWwgPSBGdW1ibGVzIC0gRGVmRnVtYmxlcywKICAgIEludGVyY2VwdGlvbnNEaWZmZXJlbnRpYWwgPSBJbnRlcmNlcHRpb25zIC0gRGVmSW50ZXJjZXB0aW9ucywKICAgIFR1cm5vdmVyRGlmZmVyZW50aWFsID0gVG90YWxUdXJub3ZlcnMgLSBEZWZUb3RhbFR1cm5vdmVycykKCm1vZGVsMSA8LSBsbShQb2ludERpZmZlcmVudGlhbCB+IEludGVyY2VwdGlvbnNEaWZmZXJlbnRpYWwgKyBGdW1ibGVEaWZmZXJlbnRpYWwsIGRhdGE9bG9ncykKc3VtbWFyeShtb2RlbDEpCmBgYApRNApgYGB7cn0KY2xvc2VfZ2FtZSA8LSBsb2dzICU+JQogIGZpbHRlcihQb2ludERpZmZlcmVudGlhbCA8PSA4LCBQb2ludERpZmZlcmVudGlhbCA+PS04KQoKbW9kZWwxIDwtIGxtKFBvaW50RGlmZmVyZW50aWFsIH4gSW50ZXJjZXB0aW9uc0RpZmZlcmVudGlhbCArIEZ1bWJsZURpZmZlcmVudGlhbCwgZGF0YT1jbG9zZV9nYW1lKQpzdW1tYXJ5KG1vZGVsMSkKICAKYGBgClE1OiBPdmVyYWxsLCBpdCBzZWVtZWQgYXMgdGhvdWdoIHNpbmdsZSByZWdyZXNzaW9ucyBzZWVtZWQgdG8gYmUgbW9yZSBhY2N1cmF0ZSB0aGFuIG11bHRpcGxlIHJlZ3Jlc3Npb25zIGJlY2F1c2UgaXQgd2FzIG9ubHkgdGVzdGluZyBvbmUgY2xlYXIgdmFyaWFibGUuIEluIHRoaXMgc3BlY2lmYyBjb250ZXh0LCBJIGZlZWwgdGhhdCBvdXIgcmVncmVzc2lvbiBpc24ndCBhY2N1cmF0ZSBiZWNhdXNlIHRoZSBBZGp1c3RlZCByLXNxdWFyZWQgaXMgYSBiaXQgaGlnaC4gTXkgaHlwb3RoZXNpcyBmb3IgdGhpcyBpcyB0aGF0LCBlc3BlY2lhbGx5IHdoZW4gbG9va2luZyBhdCB0dXJub3ZlcnMsIGNsb3NlIGdhbWVzIG1heSBub3QgYmUgdGhlIGJlc3QgbWV0cmljIGZvciBmaWx0ZXJpbmcuIEkgc2F5IHRoaXMgYmVjYXVzZSBpbiBhIGdhbWUgd2l0aCBhIGhpZ2ggdHVybm92ZXIgZGlmZmVyZW50aWFsIHRvIG9uZSBzaWRlIG9yIHRoZSBvdGhlciwgdGhlIG9kZHMgb2YgdGhlIGdhbWUgYmVpbmcgY2xvc2UgY29udGludWUgdG8gZGVjcmVhc2UsIHRoZXJlZm9yZSBvdXIgcmVncmVzc2lvbiBjb3VsZCBlYXNpbHkgYmUgc2tld2VkIG92ZXJhbGwuCgpPdmVyYWxsOiBUaGVyZSBpcyBhIGRlZmluaXRlbHkgYSBjbGVhciByZWxhdGlvbnNoaXAgYmV0d2VlbiBwZW5hbHRpZXMgYW5kIHBvaW50IGRpZmZlcmVudGlhbC4gV2hpbGUgSSBkb24ndCB0aGluayB0aGlzIGFzc2lnbm1lbnQgcHJvdmlkZXMgZW5vdWdoIGRhdGEgZm9yIGEgc3RhbmQgYWxvbmUgcGllY2UsIEkgdGhpbmsgc29tZSBvZiB0aGUgaW5mb3JtYXRpb24gaXMgaW1wb3J0YW50IGJlY3Vhc2UgaXQgcHJvdmlkZXMgY29udGV4dCB0byBob3cgZXhhY3RseSBwZW5hbHRpZXMgaW1wYWN0IGdhbWVzLiBTb21ldGhpbmcgdGhhdCBjb3VsZCBiZSBpbnRlcmVzdGluZyBob3dldmVyIGlzIGRldGVybWluaW5nIGlmIGNlcnRhaW4ga2luZHMgb2YgcGVuYWx0aWVzIGhhdmUgbW9yZSBpbXBhY3Qgb24gcG9pbnQgZGlmZmVyZW50aWFsLiBJcyBhIGZhbHNlIHN0YXJ0IGVxdWFsIHRvIGRlZmVuc2l2ZSBob2xkaW5nPyBXaHkgb3Igd2h5IG5vdD8KCgo=</div>
 
 
 
@@ -2028,7 +1996,7 @@ $(document).ready(function () {
 <!-- code folding -->
 <script>
 $(document).ready(function () {
-  window.initializeSourceEmbed("Women's Soccer Notebook.Rmd");
+  window.initializeSourceEmbed("Regression Analysis.Rmd");
   window.initializeCodeFolding("show" === "show");
 });
 </script>

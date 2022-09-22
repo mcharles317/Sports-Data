@@ -1,0 +1,55 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+```{r}
+library(tidyverse)
+```
+```{r}
+install.packages("Hmisc")
+```
+```{r}
+logs <- read_csv('http://mattwaite.github.io/sportsdatafiles/footballlogs1121.csv') 
+```
+```{r}
+logs <- logs %>% 
+  mutate(PointDifferential = TeamScore - OpponentScore)
+```
+```{r}
+fit <- lm(PointDifferential ~ Penalties, data = logs)
+summary(fit)
+```
+Question 3: The P-value tells you the correlation between two variables. If the P value is less than .05, the relationship is considered to be statistically significant.In this scenario, the P value is.01856, therefore making it statistically significant. This is useful because it shows us that there is a very clear correlation between penalty and yards in college football.
+
+```{r}
+logs <- logs %>%
+  mutate(
+    FirstDownPenDifferential = FirstDownPen - DefFirstDownPen,
+    PenYdsDifferential = PenaltyYds - DefPenaltyYds,
+    PenDifferential = Penalties - DefPenalties,
+    FumbleDifferential = Fumbles - DefFumbles,
+    InterceptionsDifferential = Interceptions - DefInterceptions,
+    TurnoverDifferential = TotalTurnovers - DefTotalTurnovers)
+
+model1 <- lm(PointDifferential ~ InterceptionsDifferential + FumbleDifferential, data=logs)
+summary(model1)
+```
+Q4
+```{r}
+close_game <- logs %>%
+  filter(PointDifferential <= 8, PointDifferential >=-8)
+
+model1 <- lm(PointDifferential ~ InterceptionsDifferential + FumbleDifferential, data=close_game)
+summary(model1)
+  
+```
+Q5: Overall, it seemed as though single regressions seemed to be more accurate than multiple regressions because it was only testing one clear variable. In this specifc context, I feel that our regression isn't accurate because the Adjusted r-squared is a bit high. My hypothesis for this is that, especially when looking at turnovers, close games may not be the best metric for filtering. I say this because in a game with a high turnover differential to one side or the other, the odds of the game being close continue to decrease, therefore our regression could easily be skewed overall.
+
+Overall: There is a definitely a clear relationship between penalties and point differential. While I don't think this assignment provides enough data for a stand alone piece, I think some of the information is important becuase it provides context to how exactly penalties impact games. Something that could be interesting however is determining if certain kinds of penalties have more impact on point differential. Is a false start equal to defensive holding? Why or why not?
+
+

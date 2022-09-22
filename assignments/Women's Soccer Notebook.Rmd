@@ -75,6 +75,9 @@ fit <- lm(differential ~ fouls, data = newcorrelations)
 summary(fit)
 ```
 
+```{r}
+correlations <- read_csv("http://mattwaite.github.io/sportsdatafiles/footballlogs21.csv")
+```
 
 
 Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
