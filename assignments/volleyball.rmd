@@ -1,0 +1,64 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+```{r}
+library(tidyverse)
+```
+```{r}
+match_data <- read_csv ("https://raw.githubusercontent.com/dwillis/NCAAWomensVolleyballData/main/data/ncaa_womens_volleyball_matchstats_2022.csv")
+```
+```{r}
+teamquality <- match_data %>% 
+  select(team, kills, digs, aces, block_solos, block_assists, b_err, team_score, opponent_score)
+
+teamtotals <- teamquality %>% 
+  group_by(team) %>% 
+  summarise(
+    KillsAvg = mean(kills), 
+    DigsAvg = mean(digs), 
+    AcesAvg = mean(aces),
+    BSoloAvg = mean(block_solos),
+    BAssAvg = mean(block_assists),
+    BErrAvg = mean(b_err),
+    TeamScoreAvg = mean(team_score),
+    OppScoreAvg = mean(opponent_score),
+    ) 
+
+teamzscore <- teamtotals %>% 
+  mutate(
+    killszscore = as.numeric(scale(KillsAvg, center = TRUE, scale = TRUE)),
+    digszscore = as.numeric(scale(DigsAvg, center = TRUE, scale = TRUE)),
+    aceszscore = as.numeric(scale(AcesAvg, center = TRUE, scale = TRUE)),
+    soloblockszscore = as.numeric(scale(BSoloAvg, center = TRUE, scale = TRUE)),
+    blockassistzscore = as.numeric(scale(BAssAvg, center = TRUE, scale = TRUE)),
+    blockerrorzscore = as.numeric(scale(BErrAvg, center = TRUE, scale = TRUE)),
+    teamscorezscore = as.numeric(scale(TeamScoreAvg, center = TRUE, scale = TRUE)),
+    oppscorezscore = as.numeric(scale(OppScoreAvg, center = TRUE, scale = TRUE)),
+    TotalZscore = KillsAvg + DigsAvg + AcesAvg + BSoloAvg + BAssAvg + BErrAvg + TeamScoreAvg + OppScoreAvg
+    ) %>% ungroup() 
+
+head(teamzscore)
+```
+
+
+```{r}
+ teamzscore <- teamzscore %>% arrange(desc(TotalZscore))
+```
+```{r}
+teamzscore %>% 
+  filter(team == "Maryland Terrapins, Terps") %>% 
+  arrange(desc(TotalZscore)) %>%
+  select(team, TotalZscore)
+```
+
+1. Based on the metrics choosen, the teams with the highest zscore rating are Wright St. Raiders, New Mexico Lobos, Creighton Bluejays, Ball St. Cardinals and the Chattanooga Mocs.
+
+2. On the Z-scale, Maryland ranks 158th out of 345 teams. Just ahead of them is Sacred Heart, Davidson and Memphis. Right behind them is Hawaii, Southeastern La. and Oklahoma. 
+
+3. We specifically chose these new metrics because we felt they added additional context. We added three different block statistics as blocks are a major part of the sport and can give context to the outcome of games. For this same reason, we added the average score of the both teams because it gives context to how close the games are and whether that is impacted by the statistics we choose. 
