@@ -1792,6 +1792,58 @@ the chunk or by placing your cursor inside it and pressing
   </code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuQnJlZWNlIDwtIE5GTCAlPiUgXG4gIGZpbHRlcihzdHJfZGV0ZWN0KGRlc2MsIFwiQnIuSGFsbFwiKSkgJT4lIFxuICBncm91cF9ieShydXNoZXIsIHJlY2VpdmVyKSAlPiUgXG4gIHN1bW1hcml6ZSh0b3RhbCA9IHN1bSh5YXJkc19nYWluZWQpKVxuYGBgIn0= -->
+<pre class="r"><code>Breece &lt;- NFL %&gt;% 
+  filter(str_detect(desc, &quot;Br.Hall&quot;)) %&gt;% 
+  group_by(rusher, receiver) %&gt;% 
+  summarize(total = sum(yards_gained))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiYHN1bW1hcmlzZSgpYCBoYXMgZ3JvdXBlZCBvdXRwdXQgYnkgJ3J1c2hlcicuIFlvdSBjYW4gb3ZlcnJpZGUgdXNpbmcgdGhlIGAuZ3JvdXBzYCBhcmd1bWVudC5cbiJ9 -->
+<pre><code>`summarise()` has grouped output by &#39;rusher&#39;. You can override using the `.groups` argument.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuQ2FydGVyIDwtIE5GTCAlPiUgXG4gIGZpbHRlciAoc3RyX2RldGVjdChkZXNjLCBcIk1pLkNhcnRlclwiKSkgJT4lIFxuICAgZ3JvdXBfYnkocnVzaGVyLCByZWNlaXZlcikgJT4lIFxuICBzdW1tYXJpemUodG90YWwgPSBzdW0oeWFyZHNfZ2FpbmVkKSlcbmBgYCJ9 -->
+<pre class="r"><code>Carter &lt;- NFL %&gt;% 
+  filter (str_detect(desc, &quot;Mi.Carter&quot;)) %&gt;% 
+   group_by(rusher, receiver) %&gt;% 
+  summarize(total = sum(yards_gained))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiYHN1bW1hcmlzZSgpYCBoYXMgZ3JvdXBlZCBvdXRwdXQgYnkgJ3J1c2hlcicuIFlvdSBjYW4gb3ZlcnJpZGUgdXNpbmcgdGhlIGAuZ3JvdXBzYCBhcmd1bWVudC5cbiJ9 -->
+<pre><code>`summarise()` has grouped output by &#39;rusher&#39;. You can override using the `.groups` argument.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuICBcbmBgYCJ9 -->
+<pre class="r"><code>  </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuR0RVQiA8LSBORkwgJT4lIFxuICBmaWx0ZXIocmVjZWl2ZXIgPT0gXCJHLldpbHNvblwiKSAlPiUgXG4gIGdyb3VwX2J5KHRvdGFsID0gbWVhbih5YXJkc19nYWluZWQsIGFpcl95YXJkcywgeWFyZHNfYWZ0ZXJfY2F0Y2gpKVxuYGBgIn0= -->
+<pre class="r"><code>GDUB &lt;- NFL %&gt;% 
+  filter(receiver == &quot;G.Wilson&quot;) %&gt;% 
+  group_by(total = mean(yards_gained, air_yards, yards_after_catch))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiV2FybmluZzogdGhlIGNvbmRpdGlvbiBoYXMgbGVuZ3RoID4gMSBhbmQgb25seSB0aGUgZmlyc3QgZWxlbWVudCB3aWxsIGJlIHVzZWRcbiJ9 -->
+<pre><code>Warning: the condition has length &gt; 1 and only the first element will be used</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gYGFkZF9jb21wdXRlZF9jb2x1bW5zKClgOlxuISBQcm9ibGVtIGFkZGluZyBjb21wdXRlZCBjb2x1bW5zIGluIGBncm91cF9ieSgpYC5cbuKcliBQcm9ibGVtIHdpdGggYG11dGF0ZSgpYCBjb2x1bW4gYHRvdGFsYC5cbuKEuSBgdG90YWwgPSBtZWFuKHlhcmRzX2dhaW5lZCwgYWlyX3lhcmRzLCB5YXJkc19hZnRlcl9jYXRjaClgLlxu4pyWICd0cmltJyBtdXN0IGJlIG51bWVyaWMgb2YgbGVuZ3RoIG9uZVxuQ2F1c2VkIGJ5IGVycm9yIGluIGBtdXRhdGVfY29scygpYDpcbiEgUHJvYmxlbSB3aXRoIGBtdXRhdGUoKWAgY29sdW1uIGB0b3RhbGAuXG7ihLkgYHRvdGFsID0gbWVhbih5YXJkc19nYWluZWQsIGFpcl95YXJkcywgeWFyZHNfYWZ0ZXJfY2F0Y2gpYC5cbuKcliAndHJpbScgbXVzdCBiZSBudW1lcmljIG9mIGxlbmd0aCBvbmVcbkNhdXNlZCBieSBlcnJvciBpbiBgbWVhbi5kZWZhdWx0KClgOlxuISAndHJpbScgbXVzdCBiZSBudW1lcmljIG9mIGxlbmd0aCBvbmVcbkJhY2t0cmFjZTpcbiAgMS4gTkZMICU+JSBmaWx0ZXIocmVjZWl2ZXIgPT0gXCJHLldpbHNvblwiKSAlPiUgLi4uXG4gMTEuIGJhc2U6Om1lYW4uZGVmYXVsdCh5YXJkc19nYWluZWQsIGFpcl95YXJkcywgeWFyZHNfYWZ0ZXJfY2F0Y2gpXG4gMTIuIGJhc2U6OnN0b3AoXCIndHJpbScgbXVzdCBiZSBudW1lcmljIG9mIGxlbmd0aCBvbmVcIilcbiJ9 -->
+<pre><code>Error in `add_computed_columns()`:
+! Problem adding computed columns in `group_by()`.
+✖ Problem with `mutate()` column `total`.
+ℹ `total = mean(yards_gained, air_yards, yards_after_catch)`.
+✖ &#39;trim&#39; must be numeric of length one
+Caused by error in `mutate_cols()`:
+! Problem with `mutate()` column `total`.
+ℹ `total = mean(yards_gained, air_yards, yards_after_catch)`.
+✖ &#39;trim&#39; must be numeric of length one
+Caused by error in `mean.default()`:
+! &#39;trim&#39; must be numeric of length one
+Backtrace:
+  1. NFL %&gt;% filter(receiver == &quot;G.Wilson&quot;) %&gt;% ...
+ 11. base::mean.default(yards_gained, air_yards, yards_after_catch)
+ 12. base::stop(&quot;&#39;trim&#39; must be numeric of length one&quot;)</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Add a new chunk by clicking the <em>Insert Chunk</em> button on the
 toolbar or by pressing <em>Cmd+Option+I</em>.</p>
@@ -1804,7 +1856,7 @@ run any R code chunks. Instead, the output of the chunk when it was last
 run in the editor is displayed.</p>
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKVGhpcyBpcyBhbiBbUiBNYXJrZG93bl0oaHR0cDovL3JtYXJrZG93bi5yc3R1ZGlvLmNvbSkgTm90ZWJvb2suIFdoZW4geW91IGV4ZWN1dGUgY29kZSB3aXRoaW4gdGhlIG5vdGVib29rLCB0aGUgcmVzdWx0cyBhcHBlYXIgYmVuZWF0aCB0aGUgY29kZS4gCgpUcnkgZXhlY3V0aW5nIHRoaXMgY2h1bmsgYnkgY2xpY2tpbmcgdGhlICpSdW4qIGJ1dHRvbiB3aXRoaW4gdGhlIGNodW5rIG9yIGJ5IHBsYWNpbmcgeW91ciBjdXJzb3IgaW5zaWRlIGl0IGFuZCBwcmVzc2luZyAqQ21kK1NoaWZ0K0VudGVyKi4gCgpgYGB7cn0KbGlicmFyeSh0aWR5dmVyc2UpCmBgYApgYGB7cn0KTkZMIDwtcmVhZF9yZHMoIi9Vc2Vycy9taWtlY2hhcmxlcy9kZXNrdG9wL2pvdXI0Nzl4X2ZhbGxfMjAyMi9hc3NpZ25tZW50cy9wbGF5X2J5X3BsYXlfMjAyMi5yZHMiKQpgYGAKYGBge3J9ClRlcnJ5IDwtIE5GTCAlPiUgCiAgZmlsdGVyKHN0cl9kZXRlY3QoZGVzYywgIk1jTGF1cmluIiksIGdhbWVfaGFsZiA9PSAiSGFsZjEiKQogIApgYGAKCgpBZGQgYSBuZXcgY2h1bmsgYnkgY2xpY2tpbmcgdGhlICpJbnNlcnQgQ2h1bmsqIGJ1dHRvbiBvbiB0aGUgdG9vbGJhciBvciBieSBwcmVzc2luZyAqQ21kK09wdGlvbitJKi4KCldoZW4geW91IHNhdmUgdGhlIG5vdGVib29rLCBhbiBIVE1MIGZpbGUgY29udGFpbmluZyB0aGUgY29kZSBhbmQgb3V0cHV0IHdpbGwgYmUgc2F2ZWQgYWxvbmdzaWRlIGl0IChjbGljayB0aGUgKlByZXZpZXcqIGJ1dHRvbiBvciBwcmVzcyAqQ21kK1NoaWZ0K0sqIHRvIHByZXZpZXcgdGhlIEhUTUwgZmlsZSkuIAoKVGhlIHByZXZpZXcgc2hvd3MgeW91IGEgcmVuZGVyZWQgSFRNTCBjb3B5IG9mIHRoZSBjb250ZW50cyBvZiB0aGUgZWRpdG9yLiBDb25zZXF1ZW50bHksIHVubGlrZSAqS25pdCosICpQcmV2aWV3KiBkb2VzIG5vdCBydW4gYW55IFIgY29kZSBjaHVua3MuIEluc3RlYWQsIHRoZSBvdXRwdXQgb2YgdGhlIGNodW5rIHdoZW4gaXQgd2FzIGxhc3QgcnVuIGluIHRoZSBlZGl0b3IgaXMgZGlzcGxheWVkLgoK</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKVGhpcyBpcyBhbiBbUiBNYXJrZG93bl0oaHR0cDovL3JtYXJrZG93bi5yc3R1ZGlvLmNvbSkgTm90ZWJvb2suIFdoZW4geW91IGV4ZWN1dGUgY29kZSB3aXRoaW4gdGhlIG5vdGVib29rLCB0aGUgcmVzdWx0cyBhcHBlYXIgYmVuZWF0aCB0aGUgY29kZS4gCgpUcnkgZXhlY3V0aW5nIHRoaXMgY2h1bmsgYnkgY2xpY2tpbmcgdGhlICpSdW4qIGJ1dHRvbiB3aXRoaW4gdGhlIGNodW5rIG9yIGJ5IHBsYWNpbmcgeW91ciBjdXJzb3IgaW5zaWRlIGl0IGFuZCBwcmVzc2luZyAqQ21kK1NoaWZ0K0VudGVyKi4gCgpgYGB7cn0KbGlicmFyeSh0aWR5dmVyc2UpCmBgYApgYGB7cn0KTkZMIDwtcmVhZF9yZHMoIi9Vc2Vycy9taWtlY2hhcmxlcy9kZXNrdG9wL2pvdXI0Nzl4X2ZhbGxfMjAyMi9hc3NpZ25tZW50cy9wbGF5X2J5X3BsYXlfMjAyMi5yZHMiKQpgYGAKYGBge3J9ClRlcnJ5IDwtIE5GTCAlPiUgCiAgZmlsdGVyKHN0cl9kZXRlY3QoZGVzYywgIk1jTGF1cmluIiksIGdhbWVfaGFsZiA9PSAiSGFsZjEiKQogIApgYGAKYGBge3J9CkJyZWVjZSA8LSBORkwgJT4lIAogIGZpbHRlcihzdHJfZGV0ZWN0KGRlc2MsICJCci5IYWxsIikpICU+JSAKICBncm91cF9ieShydXNoZXIsIHJlY2VpdmVyKSAlPiUgCiAgc3VtbWFyaXplKHRvdGFsID0gc3VtKHlhcmRzX2dhaW5lZCkpCmBgYApgYGB7cn0KQ2FydGVyIDwtIE5GTCAlPiUgCiAgZmlsdGVyIChzdHJfZGV0ZWN0KGRlc2MsICJNaS5DYXJ0ZXIiKSkgJT4lIAogICBncm91cF9ieShydXNoZXIsIHJlY2VpdmVyKSAlPiUgCiAgc3VtbWFyaXplKHRvdGFsID0gc3VtKHlhcmRzX2dhaW5lZCkpCmBgYApgYGB7cn0KR0RVQiA8LSBORkwgJT4lIAogIGZpbHRlcihyZWNlaXZlciA9PSAiRy5XaWxzb24iKSAlPiUgCiAgZ3JvdXBfYnkodG90YWwgPSBtZWFuKHlhcmRzX2dhaW5lZCwgYWlyX3lhcmRzLCB5YXJkc19hZnRlcl9jYXRjaCkpCmBgYAoKCgoKCkFkZCBhIG5ldyBjaHVuayBieSBjbGlja2luZyB0aGUgKkluc2VydCBDaHVuayogYnV0dG9uIG9uIHRoZSB0b29sYmFyIG9yIGJ5IHByZXNzaW5nICpDbWQrT3B0aW9uK0kqLgoKV2hlbiB5b3Ugc2F2ZSB0aGUgbm90ZWJvb2ssIGFuIEhUTUwgZmlsZSBjb250YWluaW5nIHRoZSBjb2RlIGFuZCBvdXRwdXQgd2lsbCBiZSBzYXZlZCBhbG9uZ3NpZGUgaXQgKGNsaWNrIHRoZSAqUHJldmlldyogYnV0dG9uIG9yIHByZXNzICpDbWQrU2hpZnQrSyogdG8gcHJldmlldyB0aGUgSFRNTCBmaWxlKS4gCgpUaGUgcHJldmlldyBzaG93cyB5b3UgYSByZW5kZXJlZCBIVE1MIGNvcHkgb2YgdGhlIGNvbnRlbnRzIG9mIHRoZSBlZGl0b3IuIENvbnNlcXVlbnRseSwgdW5saWtlICpLbml0KiwgKlByZXZpZXcqIGRvZXMgbm90IHJ1biBhbnkgUiBjb2RlIGNodW5rcy4gSW5zdGVhZCwgdGhlIG91dHB1dCBvZiB0aGUgY2h1bmsgd2hlbiBpdCB3YXMgbGFzdCBydW4gaW4gdGhlIGVkaXRvciBpcyBkaXNwbGF5ZWQuCgo=</div>
 
 
 

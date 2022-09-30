@@ -18,6 +18,26 @@ Terry <- NFL %>%
   filter(str_detect(desc, "McLaurin"), game_half == "Half1")
   
 ```
+```{r}
+Breece <- NFL %>% 
+  filter(str_detect(desc, "Br.Hall")) %>% 
+  group_by(rusher, receiver) %>% 
+  summarize(total = sum(yards_gained))
+```
+```{r}
+Carter <- NFL %>% 
+  filter (str_detect(desc, "Mi.Carter")) %>% 
+   group_by(rusher, receiver) %>% 
+  summarize(total = sum(yards_gained))
+```
+```{r}
+GDUB <- NFL %>% 
+  filter(receiver == "G.Wilson") %>% 
+  group_by(total = mean(yards_gained, air_yards, yards_after_catch))
+```
+
+
+
 
 
 Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
