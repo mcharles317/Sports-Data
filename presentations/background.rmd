@@ -1,0 +1,55 @@
+---
+title: "background.rmd"
+output: ioslides_presentation
+date: "2022-10-04"
+---
+
+```{R}
+
+```
+What statistics are most predictive of NBA champions during the regular season over the last 5 years?
+
+Does that data already exist? Can you get it?
+- Based on our conversations in class and assignments that we've done, I would think that the data exists already. I can key in on a few particular data points and try to check that over time. But I do feel like that data exists and is accessible.
+Do you need assistance in getting it?
+- I think we used this data looking into the NBA once before, so that would be helpful to have a reminder where that is and if there is anything else I need to do to the data.
+What time frame do you want/need data from?
+- I would say I want the to analyze the last five NBA champions. However, if that is too ambitious I could do the last 3 years. If 5 years isn't that ambitious, then I could analyze the last decade.
+Will you have to improve or augment the data in order to answer your question? If so, how?
+- Based on our in class assignment, I do not initially think I will have to augment the data too much.
+Are there other examples of this kind of work (specific or general)? If so, provide them.
+
+https://www.cbssports.com/nfl/news/nfl-2022-stats-notes-and-nuggets-for-every-fan-to-remember-entering-week-1/
+"Blowouts in the NFL, they matter. Here's why. Six of the last seven and seven of the last nine Super Bowl winners finished in the top 5 in point differential during the regular season. We had a nice streak rolling of top 5 point differential Super Bowl teams until last year's Rams took home the Lombardi Trophy and received those epic Super Bowl rings. 
+
+But, hey, Los Angeles wasn't some obscure outlier. That team was sixth in point differential. And randomly cutting off at the top 5 because it's a round number is kind of silly, isn't it? How about the average point differential for Super Bowl winners? In the last six seasons, they've averaged a per-game point differential of 8.58 points, which equates to nearly +146 points in point differential during the regular season, which is between the Chiefs' and Buccaneers' point-differential number from a season ago."
+^Something like this but I want to be more precise, using a collections of different statistics. 
+
+
+
+
+
+## R Markdown
+
+This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+
+## Slide with Bullets
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+## Slide with R Output
+
+```{r cars, echo = TRUE}
+summary(cars)
+```
+
+## Slide with Plot
+
+```{r pressure}
+plot(pressure)
+```
+
