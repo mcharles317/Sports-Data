@@ -2,6 +2,7 @@
 library(tidyverse)
 library(postmastr)
 library(usdata)
+library(rvest)
 ```
 
 ```{r}
@@ -11,7 +12,7 @@ wbb_rosters23 <- read_csv("https://github.com/dwillis/wbb-rosters/raw/main/roste
 # Teams That Have Roster Data
 
 ```{r}
-teams <- read_csv("../data/teams.csv")
+teams <- read_csv("https://raw.githubusercontent.com/dwillis/jour479x_fall_2022/main/data/teams.csv") %>% select(-url, -twitter, -stats_name, -private)
 
 roster_teams <- wbb_rosters23 %>% distinct(ncaa_id) %>% mutate(has_roster = 1)
 
@@ -20,42 +21,40 @@ teams <- teams %>%
 
 teams_without_rosters <- teams %>% 
   filter(is.na(roster))
+
+wbb_rosters23 <- wbb_rosters23 %>% 
+  left_join(teams, by=c("ncaa_id", "team")) 
 ```
-
-
-# Things to Clean
-
-* Drop where Name is NA
-* Standardize Positions
-* Standardizing State (would need to extract)
-* Standardizing Year (dealing with redshirts & also grad students)
-* Standardizing Height (5'10" or 5-10)
-
-# Columns to Add
-
-* State
-* Country
-* Height in inches
-
 # Height Cleaning
 
-* Still need to add a single column with total inches using feet and inches.
-
 ```{r}
-wbb_rosters23 <- wbb_rosters23 %>% mutate(
-  height = str_replace(height, '-', "'")
-)
-wbb_rosters23 <- wbb_rosters23 %>% separate(col=height, into=c("height_ft", "height_in"), sep="'", extra="merge")
-wbb_rosters23 <- wbb_rosters23 %>% mutate(height_in = str_replace(height_in, '"', " "))
-wbb_rosters23$height <- paste(wbb_rosters23$height_ft, "-", wbb_rosters23$height_in)
+wbb_rosters23 <- wbb_rosters23 %>% 
+  mutate(height_clean = str_replace(height, "'", '-')) %>% 
+  mutate(height_clean = str_replace(height_clean, "’", '-')) %>% 
+  mutate(height_clean = str_replace(height_clean, "''", '')) %>% 
+  mutate(height_clean = str_replace(height_clean, '"', '')) %>%
+  separate(height_clean, c('height_ft', 'height_in'), sep="-", extra="merge") %>% 
+  mutate(height_ft = as.numeric(height_ft), height_in = as.numeric(height_in)) %>%
+  mutate(total_inches = (height_ft*12)+height_in)
+
+
+wbb_rosters23 %>% 
+  group_by(total_inches) %>% 
+  summarise(
+    total = n()
+  )
 ```
 
+We've got 98 with NA heights.
 
+```{r}
+wbb_rosters23 %>% filter(is.na(total_inches)) %>% group_by(team) %>% summarize(count = n()) %>% arrange(desc(count))
+```
 # Positions Cleaning
 
 ```{r}
 
-positions_cleaned <- read_csv("../data/wbb_positions.csv") %>%
+positions_cleaned <- read_csv("https://raw.githubusercontent.com/dwillis/jour479x_fall_2022/main/data/wbb_positions.csv") %>%
   select(-count)
 
 wbb_rosters23 <- wbb_rosters23 %>% inner_join(positions_cleaned, by = "position") 
@@ -84,7 +83,7 @@ wbb_rosters23 %>% group_by(secondary_position) %>% summarise(count = n()) %>% ar
 # Years Cleaning
 
 ```{r}
-years_cleaned <- read_csv("../data/yearscleaned.csv")
+years_cleaned <- read_csv("https://raw.githubusercontent.com/dwillis/jour479x_fall_2022/main/data/yearscleaned.csv")
 
 wbb_rosters23 <- inner_join(wbb_rosters23, years_cleaned) %>% rename(year_clean = `year-clean`)
 
@@ -169,61 +168,43 @@ wbb_rosters23 <- wbb_rosters23 %>% mutate(homestate=str_trim(homestate), homesta
 Take the list of FIBA nations (https://www.fiba.basketball/rankingwomen) and make a list or dataframe of them, then compare that to the values in the `homestate` column generated above and populate a new column for country.
 
 ```{r}
-State <- wbb_rosters23 %>%
-  drop_na(pm.state) %>% 
-  group_by(pm.state) %>% 
-  summarise(count=n()) %>%
-  top_n(10)
-```
-
-```{r}
-Year <- wbb_rosters23 %>%
-  group_by(year_clean) %>% 
-  summarise(count=n()) %>% 
-   top_n(10)
-```
+fibaurl <- "https://www.fiba.basketball/rankingwomen"
+nations <- fibaurl %>%
+  read_html() %>%
+  html_nodes(xpath = '//*[@id="fiba_ranking_table_wrapper"]/table') %>%
+  html_table()
+nations_df <- nations[[1]]
+wbb_rosters23 <- mutate(wbb_rosters23, country = case_when(!is.na(pm.state) ~ "USA"))
 
 
-```{r}
-Positions<- wbb_rosters23 %>%
-  group_by(position_full) %>% 
-  summarise(count=n()) %>% 
-   top_n(10)
+wbb_rosters23 <- wbb_rosters23 %>% mutate(temp = sapply(strsplit(hometown_cleaned, ", ", fixed=TRUE), tail, 1))
+
+wbb_rosters23 <- mutate(wbb_rosters23, country = case_when(temp %in% c('BC', 'QUEBEC', 'BRITISH COLUMBIA', 'ALBERTA', 'ONTARIO') ~ "CANADA", TRUE ~ country))
+
+nations_df$Country <- toupper(nations_df$Country)
+
+
+
+added_nations <- data.frame(Worldrank=c(0, 0, 0, 0),
+                  Country=c('ENGLAND', 'RUSSIA', 'SCOTLAND', 'NORTHERN IRELAND'),
+                  Zonerank=c(0, 0, 0, 0),
+                  IOC=c('', '', '', ''),
+                  "Current points"=c(0, 0, 0, 0),
+                  "+/- Rank *"=c(0, 0, 0, 0),
+                  check.names = FALSE)
+nations_df <- rbind(nations_df, added_nations)
+
+
+wbb_rosters23 <- left_join(wbb_rosters23, nations_df, by=c('temp'='Country'))
+
+wbb_rosters23 <- mutate(wbb_rosters23, country = case_when((!is.na(Worldrank) & is.na(country)) ~ temp, is.na(Worldrank) &  !is.na(country) ~ country, country == "USA" ~ "USA"))
+
+wbb_rosters23 <- subset(wbb_rosters23, select = -c(Worldrank,Zonerank,IOC,`Current points`, `+/- Rank *`) )
+
+wbb_rosters23 %>% filter(is.na(country)) %>% group_by(temp) %>% summarise(count=n()) %>% arrange(desc(count))
 ```
 
-```{r}
-ggplot() + 
-  geom_bar(
-    data=State, 
-    aes(x=pm.state, weight =count)
-  ) + 
-  labs(
-    title="Women's College Basketball by State", 
-    x="State", 
-    y="Number of Players") 
-```
-```{r}
-ggplot() + 
-  geom_bar(
-    data=Year, 
-    aes(x=year_clean, weight =count)
-  ) + 
-  labs(
-    title="Women's College Basketball Players by Academic Year", 
-    x="Year", 
-    y="Number of Players") + 
-  theme_minimal()
-```
 
-```{r}
-ggplot() + 
-  geom_bar(
-    data=Positions, 
-    aes(x=position_full, weight =count)
-  ) + 
-  labs(
-    title="Women's College Basketball by Position", 
-    x="Position", 
-    y="Number of Players") + 
-  theme_minimal()
-```
+
+
+

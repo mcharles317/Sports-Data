@@ -1,0 +1,17 @@
+
+No.,Name,Yr.,Pos.,Ht.,Hometown/High School,Major
+1,Riley Vingsen,Jr.,G,5-7,"Hanover, Pa.",Delone Catholic,Biomedical Sciences
+2,Shannon May,Gr.,G,5-4,"Rydal, Pa.",Archbishop Wood,Occupational Therapy
+3,Bria Johnson,So.,G,5-8,"Montgomery, N.J.",Montgomery,Pharmacy
+4,Kendall Keyes,Sr.,G,5-6,"Mount Laurel, N.J.",Lenape,Physical Therapy
+5,Isla Brennan,Jr.,G,5-7,"Middletown, N.J.",Middletown South,Biomedical Sciences/Medical Laboratory Sciences
+10,Gisella Romeo,Jr.,G,5-7,"Marlboro, N.J.",Marlboro,Occupational Therapy
+12,Kerry Patterson,Jr.,G,5-7,"Swarthmore, Pa.",Cardinal O'Hara,Physical Therapy
+15,Jess Huber,Gr.,G,5-10,"Hatfield, Pa.",North Penn,Pharm. & Healthcare Business
+20,Anna McTamney,Fr.,F,5-10,"Plymouth Meeting, Pa.",Plymouth Whitemarsh,Pharm. & Healthcare Business
+23,Allison Waters,Fr.,G,5-9,"Belmar, N.J.,Manasquan,"Physical Therapy
+30,Shayla Johnson,Fr.,F/C,6-2,"Downingtown, Pa.",Downingtown West,Pharm. & Healthcare Business
+32,Dayna Balasa,Fr.,G,5-8,"Dresher, Pa.",Upper Dublin,Physical Therapy
+44,Harlem Jennings,Jr.,G/F,5-8,"King of Prussia, Pa.",Archbishop Carroll,Biomedical Sciences/Medical Laboratory Sciences
+45,Taylor Hamm,Sr.,F,6-0,"Collegeville, Pa.",Perkiomen Valley,Occupational Therapy
+55,Juliana Gura,Sr.,F,5-10,"Philadelphia, Pa.",Saint Basil Academy,Physical Therapy
